@@ -1,11 +1,13 @@
 import React from 'react';
 import { useStore } from '@nanostores/react';
 import { currentMode } from '../store/themeStore';
+import FadeTransition from './FadeTransition';
 
 export default function HeroContent() {
   const mode = useStore(currentMode);
 
   return (
+    <FadeTransition mode={mode}>
     <div className="text-center transition-all duration-700 ease-in-out">
       {/* Subtítulo dinámico */}
       <p className="font-sans text-accent tracking-widest text-sm mb-4 uppercase font-semibold transition-colors duration-500">
@@ -34,5 +36,6 @@ export default function HeroContent() {
         </a>
       </div>
     </div>
+    </FadeTransition>
   );
 }

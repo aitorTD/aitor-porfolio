@@ -112,7 +112,7 @@ function Particles() {
     if (state.scene.fog) {
         state.scene.fog.color.lerpColors(COLOR_ORBIT, COLOR_ABYSS, t);
         // Densidad: 0.0 (Espacio limpio) -> 0.15 (Agua turbia)
-        state.scene.fog.density = THREE.MathUtils.lerp(0.0, 0.15, t);
+        state.scene.fog.density = THREE.MathUtils.lerp(0, 0.15, t);
     }
   });
 
@@ -144,7 +144,7 @@ export default function StarField() {
         camera={{ position: [0, 0, 1] }} 
         // Creamos la niebla inicial. El color y densidad se actualizarán frame a frame.
         onCreated={({ scene }) => {
-           scene.fog = new THREE.FogExp2('#050505', 0.0);
+           scene.fog = new THREE.FogExp2('#050505', 0);
         }}
       >
         <Particles />

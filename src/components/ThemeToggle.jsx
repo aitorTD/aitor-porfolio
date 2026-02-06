@@ -11,7 +11,7 @@ export default function ThemeToggle() {
     const savedMode = localStorage.getItem('themeMode');
     if (savedMode) {
       currentMode.set(savedMode);
-      document.documentElement.setAttribute('data-theme', savedMode);
+      document.documentElement.dataset.theme = savedMode;
     }
   }, []);
 
