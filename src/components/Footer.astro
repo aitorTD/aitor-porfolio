@@ -3,23 +3,19 @@ import { ArrowUp } from 'lucide-react';
 import FooterContent from '../components/FooterContent.jsx';
 
 const currentYear = new Date().getFullYear();
-
 ---
 
 <footer id="contact" class="group/footer relative z-10 pt-20 pb-10 px-4 border-t border-white/10 mt-20 bg-[#050505]/80 backdrop-blur-md">
-  
   <FooterContent client:only="react" />
 
   <div class="max-w-6xl mx-auto mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600 font-mono">
-    
     <p>© {currentYear} Aitor. All Systems Operational.</p>
     
     <button 
       onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" 
-      class="flex items-center gap-2 hover:text-[#FF5500] transition-colors cursor-pointer"
+      class="flex items-center gap-2 volver-arriba-btn transition-colors cursor-pointer"
     >
       VOLVER ARRIBA <ArrowUp size={14} />
     </button>
   </div>
-
 </footer>

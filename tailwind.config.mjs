@@ -8,6 +8,7 @@ export default {
 				'void-gray': '#0A0A0A',
 				'bone-white': '#F2F2F2',
 				'space-orange': '#FF5500', // El naranja
+				'abyss-cyan': '#00E5FF', // El cian para modo abyss
 				'dim-gray': '#333333',
 			},
 			fontFamily: {

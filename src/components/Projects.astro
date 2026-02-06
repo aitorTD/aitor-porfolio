@@ -8,8 +8,7 @@ const projects = [
     tags: ["Python", "OpenCV", "TensorFlow", "Docker"],
     link: "#",
     github: "#",
-    // Si no tienes imagen, usa este gradiente técnico como placeholder elegante
-    image: "linear-gradient(to bottom right, #0A0A0A, #1a1a1a)" 
+    image: "linear-gradient(to bottom right, #0A0A0A, #1a1a1a)"
   },
   {
     title: "IMDb Web Scraper",
@@ -31,27 +30,24 @@ const projects = [
 ---
 
 <section id="projects" class="py-32 px-4 max-w-6xl mx-auto relative z-10">
-  
   <div class="flex items-end justify-between mb-16">
     <h2 class="font-display text-4xl md:text-5xl font-bold text-bone-white">
       SELECTED <span class="text-dim-gray">WORKS</span>
     </h2>
-    <span class="hidden md:block font-mono text-space-orange text-sm tracking-widest">
-      // SYSTEM_<span class="bg-[#FF5500]">READY</span>
+    <span class="hidden md:block font-mono text-sm tracking-widest system-ready-text">
+      // SYSTEM_<span class="system-ready-highlight">READY</span>
     </span>
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     {projects.map((project, index) => (
       <article class="cursor-pointer group relative bg-[#0A0A0A]/80 backdrop-blur-sm border border-white/10 overflow-hidden hover:border-space-orange/50 transition-colors duration-500">
-        
         <div 
           class="h-48 w-full relative overflow-hidden bg-dim-gray/20"
           style={`background: ${project.image}`}
         >
           <div class="absolute inset-0 bg-black/50 group-hover:bg-transparent transition-colors duration-500"></div>
-          
-          </div>
+        </div>
 
         <div class="p-6">
           <div class="flex justify-between items-start mb-4">
@@ -83,9 +79,8 @@ const projects = [
         </div>
 
         <div class="absolute top-0 right-0 p-2 opacity-50">
-            <ArrowUpRight size={12} className="text-space-orange opacity-0 group-hover:opacity-100 transition-opacity" />
+          <ArrowUpRight size={12} className="text-space-orange opacity-0 group-hover:opacity-100 transition-opacity" />
         </div>
-
       </article>
     ))}
   </div>

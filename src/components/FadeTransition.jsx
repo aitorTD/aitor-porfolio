@@ -4,7 +4,7 @@ export default function FadeTransition({ children, mode }) {
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        key={mode} // Al cambiar el modo, Framer Motion sabe que debe animar
+        key={mode}
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -10 }}

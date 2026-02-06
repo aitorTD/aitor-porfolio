@@ -1,18 +1,18 @@
 export const bentoContent = {
   orbit: {
-    title: "Ingeniería & Código",
-    description: "Especializado en construir aplicaciones web rápidas y sistemas escalables. Mi filosofía: Código limpio y rendimiento máximo.",
-    stackTitle: "Tech Stack",
-    stack: ['TypeScript', 'React / Astro', 'Node.js', 'Tailwind', 'Python', 'SQL', 'Git'],
-    location: "Madrid, ES",
-    subLocation: "UTC+1 (CET)"
+    title: "Full Stack Developer",
+    description: "5+ years building scalable web applications with focus on performance and clean architecture. Specialized in modern JavaScript ecosystems and cloud deployment.",
+    stackTitle: "Core Technologies",
+    stack: ['TypeScript', 'React/Next.js', 'Node.js', 'Astro', 'Python', 'PostgreSQL', 'AWS', 'Docker', 'Git'],
+    location: "Madrid, Spain",
+    subLocation: "Available Remote / Hybrid"
   },
   abyss: {
-    title: "Exploración Subacuática",
-    description: "Buceador técnico apasionado por la exploración de entornos hostiles. La precisión en el agua es tan crítica como en el despliegue de producción.",
-    stackTitle: "Dive Profile",
-    stack: ['Deep Diving', 'Nitrox/Trimix', 'Underwater Photo', 'Navigation', 'Safety Protocol', 'Drysuit'],
-    location: "Costa Brava / Cuevas",
-    subLocation: "Max Depth: 40m+"
+    title: "Technical Diver",
+    description: "Advanced certified diver with 200+ logged dives. Expert in deep exploration, wreck penetration, and underwater navigation. Precision and safety under pressure.",
+    stackTitle: "Dive Certifications",
+    stack: ['PADI Divemaster', 'Deep Diver 40m+', 'Nitrox/Trimix', 'Wreck Diving', 'Night Diver', 'Rescue Diver'],
+    location: "Mediterranean / Atlantic",
+    subLocation: "Certified to 40+ meters"
   }
 };
