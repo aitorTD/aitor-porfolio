@@ -1,5 +1,5 @@
 ---
-import { Github, ExternalLink, ArrowUpRight } from 'lucide-react';
+import { Github, ExternalLink, ArrowUpRight, Thermometer, Clock, MapPin, Anchor } from 'lucide-react';
 
 const projects = [
   {
@@ -27,19 +27,72 @@ const projects = [
     image: "linear-gradient(to bottom right, #0A0A0A, #111111)"
   }
 ];
+
+const dives = [
+  {
+    date: "2024-01-15",
+    location: "Medes Islands, Costa Brava",
+    depth: "18m",
+    temperature: "14°C",
+    time: "45 min",
+    type: "Exploration"
+  },
+  {
+    date: "2024-01-08",
+    location: "Cala Montgó, Girona",
+    depth: "12m",
+    temperature: "13°C",
+    time: "38 min",
+    type: "Training"
+  },
+  {
+    date: "2023-12-20",
+    location: "Illes Formigues, Barcelona",
+    depth: "15m",
+    temperature: "15°C",
+    time: "52 min",
+    type: "Photography"
+  },
+  {
+    date: "2023-12-10",
+    location: "Cap de Creus, Girona",
+    depth: "20m",
+    temperature: "12°C",
+    time: "41 min",
+    type: "Deep Dive"
+  },
+  {
+    date: "2023-11-25",
+    location: "Cala Sa Tuna, Tossa de Mar",
+    depth: "8m",
+    temperature: "16°C",
+    time: "35 min",
+    type: "Night Dive"
+  },
+  {
+    date: "2023-11-15",
+    location: "L'Escala, Costa Brava",
+    depth: "14m",
+    temperature: "15°C",
+    time: "48 min",
+    type: "Exploration"
+  }
+];
 ---
 
 <section id="projects" class="py-32 px-4 max-w-6xl mx-auto relative z-10">
   <div class="flex items-end justify-between mb-16">
     <h2 class="font-display text-4xl md:text-5xl font-bold text-bone-white">
-      SELECTED <span class="text-dim-gray">WORKS</span>
+      <span class="orbit-content">SELECTED <span class="text-dim-gray">WORKS</span></span>
+      <span class="abyss-content hidden">LATEST <span class="text-dim-gray">DIVES</span></span>
     </h2>
     <span class="hidden md:block font-mono text-sm tracking-widest system-ready-text">
       // SYSTEM_<span class="system-ready-highlight">READY</span>
     </span>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <!-- Developer Projects (Orbit Theme) -->
+  <div class="orbit-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     {projects.map((project, index) => (
       <article class="cursor-pointer group relative bg-[#0A0A0A]/80 backdrop-blur-sm border border-white/10 overflow-hidden hover:border-space-orange/50 transition-colors duration-500">
         <div 
@@ -80,6 +133,63 @@ const projects = [
 
         <div class="absolute top-0 right-0 p-2 opacity-50">
           <ArrowUpRight size={12} className="text-space-orange opacity-0 group-hover:opacity-100 transition-opacity" />
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <!-- Diving Log (Abyss Theme) -->
+  <div class="abyss-content hidden space-y-4">
+    {dives.map((dive) => (
+      <article class="group relative bg-[#00101F]/80 backdrop-blur-sm border border-white/10 overflow-hidden hover:border-cyan-500/50 transition-all duration-500">
+        <div class="p-6">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <!-- Left: Date and Location -->
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-2">
+                <Anchor size={16} className="text-accent" />
+                <h3 class="font-display text-xl font-bold text-white">
+                  {dive.location}
+                </h3>
+              </div>
+              <p class="font-mono text-xs text-gray-500">
+                {dive.date}
+              </p>
+            </div>
+
+            <!-- Right: Dive Data -->
+            <div class="flex flex-wrap gap-6">
+              <div class="flex items-center gap-2">
+                <MapPin size={16} className="text-accent" />
+                <div>
+                  <p class="text-xs text-gray-500">Depth</p>
+                  <p class="font-mono text-sm text-white">{dive.depth}</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <Thermometer size={16} className="text-accent" />
+                <div>
+                  <p class="text-xs text-gray-500">Temp</p>
+                  <p class="font-mono text-sm text-white">{dive.temperature}</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <Clock size={16} className="text-accent" />
+                <div>
+                  <p class="text-xs text-gray-500">Time</p>
+                  <p class="font-mono text-sm text-white">{dive.time}</p>
+                </div>
+              </div>
+
+              <div class="flex items-center">
+                <span class="px-3 py-1 bg-accent/20 text-accent text-xs rounded-full font-mono">
+                  {dive.type}
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </article>
     ))}

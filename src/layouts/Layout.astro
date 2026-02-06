@@ -135,6 +135,23 @@
     }
   }
 
+  /* Theme-aware Content Switching */
+  [data-theme="orbit"] .abyss-content {
+    display: none !important;
+  }
+  
+  [data-theme="orbit"] .orbit-content {
+    display: grid;
+  }
+  
+  [data-theme="abyss"] .orbit-content {
+    display: none !important;
+  }
+  
+  [data-theme="abyss"] .abyss-content {
+    display: block;
+  }
+
   /* Global Transitions */
   h1,
   h2,

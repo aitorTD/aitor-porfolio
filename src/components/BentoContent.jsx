@@ -34,9 +34,9 @@ export default function BentoContent() {
             <span className="px-3 py-1 bg-accent/20 text-accent text-xs rounded-full font-mono">
               {mode === "orbit" ? "Available for hire" : "Active diver"}
             </span>
-            <span className="px-3 py-1 border border-white/20 text-white/60 text-xs rounded-full font-mono">
-              {mode === "orbit" ? "5+ years exp" : "200+ dives"}
-            </span>
+            {/* <span className="px-3 py-1 border border-white/20 text-white/60 text-xs rounded-full font-mono">
+              {mode === "orbit" ? "2+ years exp" : "5+ dives"}
+            </span> */}
           </div>
         </FadeTransition>
       </div>
@@ -86,15 +86,17 @@ export default function BentoContent() {
           <div className="space-y-2">
             {mode === "orbit" ? (
               <>
-                <p className="text-gray-400 text-xs font-sans">• 5+ years full-stack</p>
+                <p className="text-gray-400 text-xs font-sans">• 1+ years full-stack</p>
                 <p className="text-gray-400 text-xs font-sans">• 50+ projects delivered</p>
                 <p className="text-gray-400 text-xs font-sans">• Team lead experience</p>
               </>
             ) : (
               <>
-                <p className="text-gray-400 text-xs font-sans">• Divemaster certified</p>
-                <p className="text-gray-400 text-xs font-sans">• Deep wreck specialist</p>
-                <p className="text-gray-400 text-xs font-sans">• Rescue trained</p>
+                <p className="text-gray-400 text-xs font-sans">• Expert communication in English, essential for international diving environments.</p>
+                <p className="text-gray-400 text-xs font-sans">• Successfully managed IT infrastructure for 30+ users.</p>
+                <p className="text-gray-400 text-xs font-sans">• Completed Oceanography (UB) and Nitrox (FEDAS) specialized courses.</p>
+                <p className="text-gray-400 text-xs font-sans">• Proven 100% precision and safety in defense industry operations at FMG.</p>
+                <p className="text-gray-400 text-xs font-sans">• Expert at managing complex systems and troubleshooting under pressure.</p>
               </>
             )}
           </div>

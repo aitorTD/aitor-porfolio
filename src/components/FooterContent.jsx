@@ -26,8 +26,8 @@ export default function FooterContent() {
       <div className="font-sans text-gray-400 max-w-lg text-lg mb-12">
         <FadeTransition mode={mode}>
           {mode === "orbit"
-            ? "Actualmente disponible para nuevos proyectos. Si buscas ingeniería de precisión, hablemos."
-            : "Actualmente disponible para nuevos proyectos."}
+            ? "Disponible para nuevos proyectos."
+            : "Disponible para nuevos proyectos."}
         </FadeTransition>
       </div>
 
