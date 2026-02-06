@@ -1,0 +1,92 @@
+---
+import { Github, ExternalLink, ArrowUpRight } from 'lucide-react';
+
+const projects = [
+  {
+    title: "AI Face Recognition",
+    description: "Sistema de seguridad biométrico. Detecta y verifica identidades en tiempo real usando redes neuronales convolucionales. Optimizado para baja latencia.",
+    tags: ["Python", "OpenCV", "TensorFlow", "Docker"],
+    link: "#",
+    github: "#",
+    // Si no tienes imagen, usa este gradiente técnico como placeholder elegante
+    image: "linear-gradient(to bottom right, #0A0A0A, #1a1a1a)" 
+  },
+  {
+    title: "IMDb Web Scraper",
+    description: "Motor de extracción de datos a gran escala. Automatiza la recolección de metadatos de películas, limpia los datasets y los exporta a formatos estructurados JSON/CSV.",
+    tags: ["Node.js", "Puppeteer", "MongoDB", "Redis"],
+    link: "#",
+    github: "#",
+    image: "linear-gradient(to bottom right, #050505, #2a2a2a)"
+  },
+  {
+    title: "Weather Dashboard",
+    description: "Interfaz de visualización climática. Conecta con APIs meteorológicas globales para ofrecer pronósticos hiper-locales con gráficos interactivos.",
+    tags: ["React", "D3.js", "Tailwind", "WeatherAPI"],
+    link: "#",
+    github: "#",
+    image: "linear-gradient(to bottom right, #0A0A0A, #111111)"
+  }
+];
+---
+
+<section id="projects" class="py-32 px-4 max-w-6xl mx-auto relative z-10">
+  
+  <div class="flex items-end justify-between mb-16">
+    <h2 class="font-display text-4xl md:text-5xl font-bold text-bone-white">
+      SELECTED <span class="text-dim-gray">WORKS</span>
+    </h2>
+    <span class="hidden md:block font-mono text-space-orange text-sm tracking-widest">
+      // SYSTEM_<span class="bg-[#FF5500]">READY</span>
+    </span>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {projects.map((project, index) => (
+      <article class="cursor-pointer group relative bg-[#0A0A0A]/80 backdrop-blur-sm border border-white/10 overflow-hidden hover:border-space-orange/50 transition-colors duration-500">
+        
+        <div 
+          class="h-48 w-full relative overflow-hidden bg-dim-gray/20"
+          style={`background: ${project.image}`}
+        >
+          <div class="absolute inset-0 bg-black/50 group-hover:bg-transparent transition-colors duration-500"></div>
+          
+          </div>
+
+        <div class="p-6">
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="font-display text-xl font-bold text-white group-hover:text-space-orange transition-colors">
+              {project.title}
+            </h3>
+            
+            <div class="flex gap-3 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+              <a href={project.github} target="_blank" class="text-gray-400 hover:text-white transition-colors" title="Ver Código">
+                <Github size={18} />
+              </a>
+              <a href={project.link} target="_blank" class="text-gray-400 hover:text-white transition-colors" title="Ver Demo">
+                <ExternalLink size={18} />
+              </a>
+            </div>
+          </div>
+
+          <p class="text-gray-400 text-sm leading-relaxed mb-6 font-sans">
+            {project.description}
+          </p>
+
+          <div class="flex flex-wrap gap-2 mt-auto">
+            {project.tags.map((tag) => (
+              <span class="text-xs font-mono text-gray-500 border border-white/5 px-2 py-1 rounded bg-white/5">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div class="absolute top-0 right-0 p-2 opacity-50">
+            <ArrowUpRight size={12} className="text-space-orange opacity-0 group-hover:opacity-100 transition-opacity" />
+        </div>
+
+      </article>
+    ))}
+  </div>
+</section>
