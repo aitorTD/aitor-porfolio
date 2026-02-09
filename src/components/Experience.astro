@@ -1,0 +1,216 @@
+---
+import { Briefcase, Anchor } from 'lucide-react';
+
+const devExperience = [
+  {
+    period: {
+      en: "November 2025 — Present",
+      es: "November 2025 — Actualidad"
+    },
+    role: {
+      en: "Software Developer",
+      es: "Operario Especializado en Procesos Críticos"
+    },
+    company: "FMG Granada",
+    highlights: {
+      en: [
+        "Ejecución técnica en entorno de misión crítica, garantizando precisión milimétrica y tolerancia cero a fallos.",
+        "Cumplimiento estricto de QA y seguridad, bajo normativas de alto riesgo.",
+        "Trabajo bajo metodología rigurosa, priorizando la estandarización y eficiencia."
+      ],
+      es: [
+        "Migraciones a cloud y gestión de infraestructura",
+        "Automatización de flujos de trabajo y herramientas internas",
+        "Procesamiento de datos e iniciativas relacionadas con IA"
+      ]
+    }
+  },
+  {
+    period: {
+      en: "April 2024 — June 2025",
+      es: "Abril 2022 — Junio 2025"
+    },
+    role: {
+      en: "IT Manager",
+      es: "IT Manager"
+    },
+    company: "CL Granada",
+    highlights: {
+      en: [
+        "High-precision operational environments",
+        "User support and network administration",
+        "Incident response and troubleshooting"
+      ],
+      es: [
+        "Entornos operativos de alta precisión",
+        "Soporte a usuarios y administración de redes",
+        "Respuesta a incidentes y resolución de problemas"
+      ]
+    }
+  }
+];
+
+const diveExperience = [
+  {
+    period: {
+      en: "2025 — Present",
+      es: "2025 — Actualidad"
+    },
+    role: {
+      en: "Professional Diving Candidate",
+      es: "Candidato a Buceo Profesional"
+    },
+    place: "Spain / Worldwide",
+    highlights: {
+      en: [
+        "PSS Open Water Diver (18m)",
+        "Nitrox (FEDAS) training",
+        "Oceanography studies (Universidad de Barcelona)"
+      ],
+      es: [
+        "PSS Open Water Diver (18m)",
+        "Formación Nitrox (FEDAS)",
+        "Estudios de Oceanografía (Universidad de Barcelona)"
+      ]
+    }
+  },
+  {
+    period: {
+      en: "Ongoing",
+      es: "En curso"
+    },
+    role: {
+      en: "Safety-first mindset",
+      es: "Mentalidad safety-first"
+    },
+    place: "",
+    highlights: {
+      en: [
+        "Rigorous protocol adherence",
+        "Situational awareness under pressure",
+        "Team-first communication (C1 English)"
+      ],
+      es: [
+        "Cumplimiento riguroso de protocolos",
+        "Conciencia situacional bajo presión",
+        "Comunicación orientada al equipo (Inglés C1)"
+      ]
+    }
+  }
+];
+---
+
+<section id="experience" class="py-24 px-4 max-w-6xl mx-auto relative z-10">
+  <div class="flex items-end justify-between mb-12">
+    <h2 class="font-display text-4xl md:text-5xl font-bold text-bone-white">
+      <span class="orbit-content">
+        <span class="lang-en">EXPERIENCE</span>
+        <span class="lang-es">EXPERIENCIA</span>
+      </span>
+      <span class="abyss-content">
+        <span class="lang-en">DIVE</span>
+        <span class="lang-es">BUCEO</span>
+        <span class="text-dim-gray">
+          <span class="lang-en"> EXPERIENCE</span>
+          <span class="lang-es"> EXPERIENCIA</span>
+        </span>
+      </span>
+    </h2>
+
+    <span class="hidden md:block font-mono text-sm tracking-widest system-ready-text">
+      // PROFILE_<span class="system-ready-highlight">LOG</span>
+    </span>
+  </div>
+
+  <div class="orbit-content space-y-4">
+    {devExperience.map((item) => (
+      <article class="bg-[#0A0A0A]/80 backdrop-blur-sm border border-white/10 hover:border-accent transition-colors duration-500">
+        <div class="p-6">
+          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-2">
+                <Briefcase size={16} className="text-accent" />
+                <h3 class="font-display text-xl font-bold text-white">
+                  <span class="lang-en">{item.role.en}</span>
+                  <span class="lang-es">{item.role.es}</span>
+                </h3>
+              </div>
+              {item.company ? (
+                <p class="text-gray-400 text-sm font-mono tracking-wide mb-3">
+                  {item.company}
+                </p>
+              ) : null}
+              <p class="font-mono text-xs text-gray-500">
+                <span class="lang-en">{item.period.en}</span>
+                <span class="lang-es">{item.period.es}</span>
+              </p>
+            </div>
+
+            <ul class="flex-1 space-y-2 text-sm text-gray-400 font-sans lang-en">
+              {item.highlights.en.map((h) => (
+                <li class="flex gap-2">
+                  <span class="text-accent font-mono">&gt;</span>
+                  <span>{h}</span>
+                </li>
+              ))}
+            </ul>
+            <ul class="flex-1 space-y-2 text-sm text-gray-400 font-sans lang-es">
+              {item.highlights.es.map((h) => (
+                <li class="flex gap-2">
+                  <span class="text-accent font-mono">&gt;</span>
+                  <span>{h}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <div class="abyss-content space-y-4">
+    {diveExperience.map((item) => (
+      <article class="bg-[#00101F]/80 backdrop-blur-sm border border-white/10 hover:border-accent transition-colors duration-500">
+        <div class="p-6">
+          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-2">
+                <Anchor size={16} className="text-accent" />
+                <h3 class="font-display text-xl font-bold text-white">
+                  <span class="lang-en">{item.role.en}</span>
+                  <span class="lang-es">{item.role.es}</span>
+                </h3>
+              </div>
+              {item.place ? (
+                <p class="text-gray-400 text-xs font-mono tracking-wide mb-1">
+                  {item.place}
+                </p>
+              ) : null}
+              <p class="font-mono text-xs text-gray-500">
+                <span class="lang-en">{item.period.en}</span>
+                <span class="lang-es">{item.period.es}</span>
+              </p>
+            </div>
+
+            <ul class="flex-1 space-y-2 text-sm text-gray-400 font-sans lang-en">
+              {item.highlights.en.map((h) => (
+                <li class="flex gap-2">
+                  <span class="text-accent font-mono">&gt;</span>
+                  <span>{h}</span>
+                </li>
+              ))}
+            </ul>
+            <ul class="flex-1 space-y-2 text-sm text-gray-400 font-sans lang-es">
+              {item.highlights.es.map((h) => (
+                <li class="flex gap-2">
+                  <span class="text-accent font-mono">&gt;</span>
+                  <span>{h}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>

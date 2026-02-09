@@ -30,64 +30,86 @@ const projects = [
 
 const dives = [
   {
-    date: "2024-01-15",
-    location: "Medes Islands, Costa Brava",
-    depth: "18m",
-    temperature: "14°C",
-    time: "45 min",
+    date: "23-09-2025",
+    location: "La Herradura, Granada, Spain",
+    depth: "8m",
+    temperature: "22°C",
+    time: "46 min",
     type: "Exploration"
   },
   {
-    date: "2024-01-08",
-    location: "Cala Montgó, Girona",
-    depth: "12m",
-    temperature: "13°C",
-    time: "38 min",
+    date: "12-09-2025",
+    location: "Tossa de Mar, Barcelona, Spain",
+    depth: "20.5m",
+    temperature: "23°C",
+    time: "50 min",
+    type: "Exploration"
+  },
+  {
+    date: "08-08-2025",
+    location: "Almuñecar, Granada, Spain",
+    depth: "10m",
+    temperature: "26°C",
+    time: "35 min",
+    type: "Exploration"
+  },
+  {
+    date: "06-08-2025",
+    location: "Cala Palmera, Alicante, Spain",
+    depth: "7.1m",
+    temperature: "25°C",
+    time: "36 min",
+    type: "Exploration"
+  },
+    {
+    date: "25-07-2025",
+    location: "La Herradura, Granada, Spain",
+    depth: "+6m",
+    temperature: "18°C",
+    time: "45 min",
     type: "Training"
   },
   {
-    date: "2023-12-20",
-    location: "Illes Formigues, Barcelona",
-    depth: "15m",
-    temperature: "15°C",
-    time: "52 min",
-    type: "Photography"
+    date: "24-07-2025",
+    location: "La Herradura, Granada, Spain",
+    depth: "+6m",
+    temperature: "18°C",
+    time: "45 min",
+    type: "Training"
   },
   {
-    date: "2023-12-10",
-    location: "Cap de Creus, Girona",
-    depth: "20m",
-    temperature: "12°C",
-    time: "41 min",
-    type: "Deep Dive"
+    date: "23-07-2025",
+    location: "La Herradura, Granada, Spain",
+    depth: "+6m",
+    temperature: "18°C",
+    time: "45 min",
+    type: "Training"
   },
   {
-    date: "2023-11-25",
-    location: "Cala Sa Tuna, Tossa de Mar",
-    depth: "8m",
-    temperature: "16°C",
-    time: "35 min",
-    type: "Night Dive"
+    date: "22-07-2025",
+    location: "La Herradura, Granada, Spain",
+    depth: "+6m",
+    temperature: "18°C",
+    time: "61 min",
+    type: "Training"
   },
-  {
-    date: "2023-11-15",
-    location: "L'Escala, Costa Brava",
-    depth: "14m",
-    temperature: "15°C",
-    time: "48 min",
-    type: "Exploration"
-  }
 ];
+
+const diveCount = dives.length;
 ---
 
 <section id="projects" class="py-32 px-4 max-w-6xl mx-auto relative z-10">
   <div class="flex items-end justify-between mb-16">
     <h2 class="font-display text-4xl md:text-5xl font-bold text-bone-white">
       <span class="orbit-content">SELECTED <span class="text-dim-gray">WORKS</span></span>
-      <span class="abyss-content hidden">LATEST <span class="text-dim-gray">DIVES</span></span>
+      <span class="abyss-content">LATEST <span class="text-dim-gray">DIVES</span></span>
     </h2>
     <span class="hidden md:block font-mono text-sm tracking-widest system-ready-text">
-      // SYSTEM_<span class="system-ready-highlight">READY</span>
+      <span class="orbit-content">// SYSTEM_<span class="system-ready-highlight">READY</span></span>
+      <span class="abyss-content">
+        // SYSTEM_<span class="system-ready-highlight">READY</span> = {diveCount}{' '}
+        <span data-dives-label></span>
+      </span>
     </span>
   </div>
 
@@ -139,16 +161,16 @@ const dives = [
   </div>
 
   <!-- Diving Log (Abyss Theme) -->
-  <div class="abyss-content hidden space-y-4">
+  <div class="abyss-content space-y-4" data-dives>
     {dives.map((dive) => (
-      <article class="group relative bg-[#00101F]/80 backdrop-blur-sm border border-white/10 overflow-hidden hover:border-cyan-500/50 transition-all duration-500">
-        <div class="p-6">
-          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <article class="dive-item group relative bg-[#00101F]/80 backdrop-blur-sm border border-white/10 overflow-hidden hover:border-cyan-500/50 transition-all duration-500">
+        <div class="p-4">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
             <!-- Left: Date and Location -->
             <div class="flex-1">
-              <div class="flex items-center gap-2 mb-2">
+              <div class="flex items-center gap-2 mb-1">
                 <Anchor size={16} className="text-accent" />
-                <h3 class="font-display text-xl font-bold text-white">
+                <h3 class="font-display text-lg font-bold text-white">
                   {dive.location}
                 </h3>
               </div>
@@ -158,9 +180,9 @@ const dives = [
             </div>
 
             <!-- Right: Dive Data -->
-            <div class="flex flex-wrap gap-6">
+            <div class="flex flex-wrap gap-10">
               <div class="flex items-center gap-2">
-                <MapPin size={16} className="text-accent" />
+                <MapPin size={14} className="text-accent" />
                 <div>
                   <p class="text-xs text-gray-500">Depth</p>
                   <p class="font-mono text-sm text-white">{dive.depth}</p>
@@ -168,7 +190,7 @@ const dives = [
               </div>
 
               <div class="flex items-center gap-2">
-                <Thermometer size={16} className="text-accent" />
+                <Thermometer size={14} className="text-accent" />
                 <div>
                   <p class="text-xs text-gray-500">Temp</p>
                   <p class="font-mono text-sm text-white">{dive.temperature}</p>
@@ -176,7 +198,7 @@ const dives = [
               </div>
 
               <div class="flex items-center gap-2">
-                <Clock size={16} className="text-accent" />
+                <Clock size={14} className="text-accent" />
                 <div>
                   <p class="text-xs text-gray-500">Time</p>
                   <p class="font-mono text-sm text-white">{dive.time}</p>
@@ -193,5 +215,108 @@ const dives = [
         </div>
       </article>
     ))}
+
+    <div class="flex justify-center pt-4">
+      <button
+        type="button"
+        data-dives-more
+        class="px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:border-accent transition-all duration-300 font-mono text-xs tracking-widest cursor-pointer"
+      >
+        <span class="lang-en">SHOW MORE</span>
+        <span class="lang-es">VER MÁS</span>
+      </button>
+      <button
+        type="button"
+        data-dives-less
+        class="ml-3 px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:border-accent transition-all duration-300 font-mono text-xs tracking-widest cursor-pointer"
+      >
+        <span class="lang-en">SHOW LESS</span>
+        <span class="lang-es">VER MENOS</span>
+      </button>
+    </div>
   </div>
 </section>
+
+<script>
+  (() => {
+    const setDivesLabel = () => {
+      const labelEl = document.querySelector<HTMLElement>('[data-dives-label]');
+      if (!labelEl) return;
+
+      const lang = document.documentElement.dataset.lang;
+      labelEl.textContent = lang === 'es' ? 'inmersiones' : 'dives';
+    };
+
+    setDivesLabel();
+
+    const observer = new MutationObserver(() => {
+      setDivesLabel();
+    });
+
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-lang'] });
+
+    const section = document.querySelector<HTMLElement>('#projects');
+    if (!section) return;
+
+    const container = section.querySelector<HTMLElement>('[data-dives]');
+    if (!container) return;
+
+    const items = Array.from(container.querySelectorAll<HTMLElement>('.dive-item'));
+    const moreBtn = container.querySelector<HTMLButtonElement>('[data-dives-more]');
+    const lessBtn = container.querySelector<HTMLButtonElement>('[data-dives-less]');
+
+    if (!moreBtn || !lessBtn || items.length === 0) return;
+
+    const step = 5;
+    let visible = step;
+
+    const update = (prevVisible = visible) => {
+      items.forEach((el, idx) => {
+        const shouldShow = idx < visible;
+        el.style.display = shouldShow ? '' : 'none';
+
+        if (shouldShow && idx >= prevVisible) {
+          el.classList.remove('dive-reveal');
+          void el.offsetWidth;
+          el.classList.add('dive-reveal');
+        }
+      });
+
+      moreBtn.style.display = visible < items.length ? '' : 'none';
+      lessBtn.style.display = visible > step ? '' : 'none';
+    };
+
+    moreBtn.addEventListener('click', () => {
+      const prev = visible;
+      visible = Math.min(items.length, visible + step);
+      update(prev);
+    });
+
+    lessBtn.addEventListener('click', () => {
+      visible = step;
+      update(visible);
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    update(0);
+  })();
+</script>
+
+<style>
+  @keyframes diveReveal {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+      filter: blur(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  .dive-reveal {
+    animation: diveReveal 0.45s ease both;
+  }
+</style>

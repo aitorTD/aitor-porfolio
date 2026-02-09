@@ -1,11 +1,28 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Aitor Portfolio V2" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
+
+    <script>
+      (() => {
+        try {
+          const params = new URLSearchParams(window.location.search);
+          const urlLang = params.get('lang');
+          const savedLang = localStorage.getItem('lang');
+          const lang = urlLang === 'en' || urlLang === 'es' ? urlLang : savedLang === 'en' || savedLang === 'es' ? savedLang : 'en';
+          document.documentElement.dataset.lang = lang;
+          document.documentElement.lang = lang;
+          localStorage.setItem('lang', lang);
+        } catch {
+          document.documentElement.dataset.lang = 'en';
+          document.documentElement.lang = 'en';
+        }
+      })();
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -139,17 +156,18 @@
   [data-theme="orbit"] .abyss-content {
     display: none !important;
   }
-  
-  [data-theme="orbit"] .orbit-content {
-    display: grid;
-  }
-  
+
   [data-theme="abyss"] .orbit-content {
     display: none !important;
   }
-  
-  [data-theme="abyss"] .abyss-content {
-    display: block;
+
+
+  [data-lang="en"] .lang-es {
+    display: none !important;
+  }
+
+  [data-lang="es"] .lang-en {
+    display: none !important;
   }
 
   /* Global Transitions */

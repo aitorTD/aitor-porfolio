@@ -62,7 +62,7 @@ function Particles() {
 
     for (let i = 0; i < COUNT; i++) {
       const i3 = i * 3;
-      positionsArray[i3 + 1] += speeds[i] * t;
+      positionsArray[i3 + 1] += speeds[i] * t * 0.35;
 
       if (t > 0.01) {
         const oscillation = Math.sin(time * 1.5 + offsets[i]) * 0.1 * t;

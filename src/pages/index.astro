@@ -3,8 +3,10 @@ import "../styles/global.css";
 import Layout from '../layouts/Layout.astro';
 import StarField from '../components/StarField';
 import ThemeToggle from '../components/ThemeToggle';
+import LanguageToggle from '../components/LanguageToggle';
 import HeroContent from '../components/HeroContent.jsx';
 import BentoGrid from '../components/BentoGrid.astro';
+import Experience from '../components/Experience.astro';
 import Projects from '../components/Projects.astro';
 import Footer from '../components/Footer.astro';
 import { Analytics } from '@vercel/analytics/react';
@@ -12,6 +14,7 @@ import { Analytics } from '@vercel/analytics/react';
 
 <Layout title="Aitor | Portfolio V2">
 	<ThemeToggle client:only="react" />
+	<LanguageToggle client:only="react" />
 	<StarField client:only="react" />
 
 	<main class="relative z-10 h-screen flex flex-col justify-center items-center px-4">
@@ -21,6 +24,7 @@ import { Analytics } from '@vercel/analytics/react';
 	</main>
 
 	<BentoGrid />
+	<Experience />
 	<Projects />
 	<Footer />
 	<Analytics />
