@@ -1,4 +1,4 @@
-import React, { useRef, useMemo } from 'react';
+import React, { useRef, useMemo, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import { useStore } from '@nanostores/react';
@@ -103,6 +103,65 @@ function Particles() {
 
 export default function StarField() {
   const mode = useStore(currentMode);
+  const [isWebGLSupported, setIsWebGLSupported] = useState(true);
+  const [hasError, setHasError] = useState(false);
+
+  useEffect(() => {
+    // Check WebGL support
+    const canvas = document.createElement('canvas');
+    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    
+    if (!gl) {
+      setIsWebGLSupported(false);
+      return;
+    }
+
+    // Check if WebGL is actually functional
+    const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+    if (debugInfo) {
+      const vendor = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL);
+      const renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+      
+      // Some environments report WebGL support but it's disabled
+      if (vendor.includes('Disabled') || renderer.includes('Disabled')) {
+        setIsWebGLSupported(false);
+        return;
+      }
+    }
+  }, []);
+
+  const handleCanvasError = (error) => {
+    console.error('WebGL context creation failed:', error);
+    setHasError(true);
+  };
+
+  if (!isWebGLSupported || hasError) {
+    // Fallback to CSS-only starfield
+    return (
+      <div 
+        className="fixed inset-0 -z-10 h-full w-full transition-colors duration-1000 ease-in-out overflow-hidden"
+        style={{ backgroundColor: mode === 'orbit' ? '#050505' : '#00101F' }}
+      >
+        <div className="absolute inset-0">
+          {[...Array(100)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute rounded-full bg-white animate-pulse"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                width: `${Math.random() * 3 + 1}px`,
+                height: `${Math.random() * 3 + 1}px`,
+                opacity: Math.random() * 0.8 + 0.2,
+                animationDelay: `${Math.random() * 3}s`,
+                animationDuration: `${Math.random() * 3 + 2}s`
+              }}
+            />
+          ))}
+        </div>
+      </div>
+    );
+  }
   
   return (
     <div 
@@ -113,6 +172,12 @@ export default function StarField() {
         camera={{ position: [0, 0, 1] }}
         onCreated={({ scene }) => {
           scene.fog = new THREE.FogExp2('#050505', 0);
+        }}
+        onError={handleCanvasError}
+        gl={{
+          antialias: true,
+          alpha: false,
+          powerPreference: "high-performance"
         }}
       >
         <Particles />
