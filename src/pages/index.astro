@@ -13,12 +13,12 @@ import { Analytics } from '@vercel/analytics/react';
 ---
 
 <Layout title="Aitor | Portfolio V2">
-	<ThemeToggle client:only="react" />
 	<LanguageToggle client:only="react" />
 	<StarField client:only="react" />
 
 	<main class="relative z-10 h-screen flex flex-col justify-center items-center px-4">
 		<div class="border border-dim-gray p-12 bg-black/40 backdrop-blur-sm max-w-4xl w-full">
+			<ThemeToggle client:only="react" />
 			<HeroContent client:only="react" />
 		</div>
 	</main>
