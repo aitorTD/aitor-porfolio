@@ -20,6 +20,12 @@ const initialTheme = getInitialTheme();
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
+    
+    <!-- Vercel Analytics -->
+    <script>
+      window.va = window.va || function() { (window.vaq = window.vaq || []).push(arguments as any); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
 
     <script>
       (() => {
